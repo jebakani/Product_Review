@@ -58,5 +58,16 @@ namespace ProductReviewManagement
             Console.WriteLine("Top 3 products");
             IterateMethod(res);
         }
+
+        //UC3-Count of person gave review
+        public void CountOfUser()
+        {
+            Console.WriteLine("\nCount of person reviewed the product");
+            var res = Product.GroupBy(p => p.productId).Select(x => new { productId = x.Key, count = x.Count() });
+            foreach(var r in res)
+            {
+                Console.WriteLine("Product Id:{0}\tCount:{1}",r.productId,r.count);
+            }
+        }
     }
 }
