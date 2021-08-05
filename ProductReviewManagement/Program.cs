@@ -9,8 +9,9 @@ namespace ProductReviewManagement
             Console.WriteLine("Welcome to Product Review Management System");
             ReviewManager review = new ReviewManager();
             review.AddReviews();
-            review.Top3RatedProduct();
-            review.CountOfUser();
+            //review.IterateMethod(review.Top3RatedProduct());
+            review.IterateMethod(review.RetrivalRecordRatingGreaterThan3());
+            //review.CountOfUser();
         }
     }
 }
