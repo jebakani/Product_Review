@@ -42,6 +42,13 @@ namespace ProductReviewManagement
             Product.Add(new ProductReview() { productId = 5, userId = 1, rating = 4, review = "bad", isLike = false });
             Product.Add(new ProductReview() { productId = 6, userId = 5, rating = 9, review = "Average", isLike = true });
             Product.Add(new ProductReview() { productId = 9, userId = 10, rating = 5, review = "bad", isLike = false });
+            Product.Add(new ProductReview() { productId = 4, userId = 10, rating = 17, review = "good", isLike = true });
+            Product.Add(new ProductReview() { productId = 2, userId = 10, rating = 5, review = "bad", isLike = false });
+            Product.Add(new ProductReview() { productId = 3, userId = 10, rating = 13, review = "average", isLike = true });
+            Product.Add(new ProductReview() { productId = 7, userId = 10, rating = 8, review = "average", isLike = true });
+            Product.Add(new ProductReview() { productId = 8, userId = 10, rating = 6, review = "bad", isLike = false });
+            Product.Add(new ProductReview() { productId = 10, userId = 10, rating = 2, review = "bad", isLike = false });
+
             return Product;    
         }
 
@@ -144,6 +151,12 @@ namespace ProductReviewManagement
                 dataTable.Rows.Add(l.productId, l.userId, l.rating, l.review, l.isLike);
             }
             IterateTable(dataTable);
+        }
+        //UC12-Retriving the record of given user order by rating
+        public List<ProductReview> RetriveTheRecordOfUserId(int userId)
+        {
+            var res = Product.OrderByDescending(x=>x.rating).Where(x=>x.userId==userId).ToList();
+            return res;
         }
     }
 }
