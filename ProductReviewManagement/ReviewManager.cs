@@ -94,5 +94,11 @@ namespace ProductReviewManagement
             int[] res = (from product in Product select product.productId).ToArray();
             return res;
         }
+        //UC7-Retrive product Id from list
+        public int[] RetriveOnlyProductIdMethod()
+        {
+            int[] res =Product.Select(x=>x.productId).ToArray();
+            return res;
+        }
     }
 }
