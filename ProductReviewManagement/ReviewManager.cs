@@ -80,5 +80,19 @@ namespace ProductReviewManagement
             res = (from product in Product where (product.rating > 3) && (product.productId==1 || product.productId==4 || product.productId==9) select product).ToList();
             return res;
         }
+
+        //UC6-Skip top 5 records
+        public List<ProductReview> SkipTop5Record()
+        {
+            var res = (from product in Product orderby product.rating descending select product).Skip(5).ToList();
+            return res;
+        }
+
+        //UC5-Retrive product Id from list
+        public int[] RetriveOnlyProductId()
+        {
+            int[] res = (from product in Product select product.productId).ToArray();
+            return res;
+        }
     }
 }
