@@ -158,5 +158,15 @@ namespace ProductReviewManagement
             var res = Product.OrderByDescending(x=>x.rating).Where(x=>x.userId==userId).ToList();
             return res;
         }
+        //UC11-Retrive the record from table where isLike field is true
+        public void RetriveFromTable(DataTable table)
+        {
+            var res = table.AsEnumerable().Where(x => x.Field<string>("IsLike").Equals("true")).Select(x => x.Field<string>("ProductId")).ToList();
+            foreach (var r in res)
+            {
+                Console.WriteLine(r);
+            }
+
+        }
     }
 }
